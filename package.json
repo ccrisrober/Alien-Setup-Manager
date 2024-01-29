@@ -1,0 +1,22 @@
+{
+    "name": "legendary-alien-setup-manager",
+    "displayName": "Legendary Encounters: Alien setup manager",
+    "product_string": "Legendary Encounters: Alien setup manager",
+    "main": "index.html",
+    "description": "An automated setup tool for Legendary Encounters: Alien",
+    "version": "2023.07.04",
+    "homepage": "https://www.kenherbert.dev/projects/legendary-encounters-alien-setup-manager/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.com/kenherbert/legendary-alien-setup-manager.git"
+    },
+    "author": {
+        "name": "Ken Herbert",
+        "email": "admin@kenherbert.dev",
+        "url": "https://kenherbert.dev/"
+    },
+    "scripts": {
+        "start": "python3 -m http.server 8009"
+    }
+}

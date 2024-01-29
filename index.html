@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Legendary Encounters: Alien preparación de partidas</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <style>
+            .tooltip-container {
+                cursor: help;
+            }
+            .svg-icon.light {
+                filter: invert(44%) sepia(10%) saturate(1037%) hue-rotate(186deg) brightness(191%) contrast(183%);
+            }
+            .svg-icon.dark {
+                filter: invert(24%) sepia(10%) saturate(1037%) hue-rotate(186deg) brightness(91%) contrast(83%);
+            }
+            .dark-mode .svg-icon.light.switch-dark {
+                filter: invert(44%) sepia(10%) saturate(1037%) hue-rotate(186deg) brightness(191%) contrast(183%);
+            }
+            .dark-mode .svg-icon.dark.switch-dark {
+                filter: invert(44%) sepia(10%) saturate(1037%) hue-rotate(186deg) brightness(191%) contrast(183%);
+            }
+            .btn-icon {
+                width: 23px;
+                vertical-align: text-bottom;
+            }
+            .hidden {
+                display: none;
+            }
+
+body {
+  color: white;
+  background-color: black;
+}
+
+            .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+                   background-color: #1bc305;
+    border-color: #00ff3b;
+            }
+
+            .modal-content {
+    background-color: #000;
+        border: 1px solid white;
+}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row py-3">
+                <div class="col-12">
+                    <h1 class="text-center">Legendary Encounters: Alien preparación de partida</h1>
+                </div>
+            </div>
+        
+            <!--Begin Django flatpage content for portfolio release-->
+            <style>
+                .player-queen {
+                    color: #aa0000;
+                }
+            </style>
+            <div class="row py-3">
+                <div class="col-12">
+                    <div class="form-row">
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                            <label>Número de jugadores</label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="player-count" value="1" checked> 1
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="player-count" value="2"> 2
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="player-count" value="3"> 3
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="player-count" value="4"> 4
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="player-count" value="5"> 5
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1">
+                            <label>Primera expansión</label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="include-expansion" id="include-expansion-yes" value="1"> Yes
+                                </label>
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="include-expansion" id="include-expansion-no" value="0" checked> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1">
+                            <label>Alien: Covenant</label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="include-covenant" id="include-covenant-yes" value="1"> Yes
+                                </label>
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="include-covenant" id="include-covenant-no" value="0" checked> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                            <label>Alien: Fanmade</label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="include-fanmade" id="include-fanmade-yes" value="1"> Yes
+                                </label>
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="include-fanmade" id="include-fanmade-no" value="0" checked> No
+                                </label>
+                            </div>
+                        </div>
+                        <div id="hidden-agendas-container" class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1 hidden">
+                            <label>Motivaciones ocultas&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, puede que un jugador esté trabajando en secreto contra el resto." data-toggle="tooltip" tabindex="0">?</span></label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="hidden-agendas" id="hidden-agendas-yes" value="1"> Yes
+                                </label>
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="hidden-agendas" id="hidden-agendas-no" value="0" checked> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1 expansion-multiplayer-only hidden">
+                            <label>Reina Madre&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, un jugador al azar se convertirá en la Reina Madre (o David si la expansión Alien: Covenant está disponible) y se opondrá a todos los demás jugadores." data-toggle="tooltip" tabindex="0">?</span></label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="queen-mode" id="queen-mode-yes" value="1"> Yes
+                                </label>
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="queen-mode" id="queen-mode-no" value="0" checked> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-none d-lg-block col-lg-1 player-count-2-plus-only"></div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1 expansion-only hidden">
+                            <label>Modo difícil&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, los lugares y los objetivos serán todos los del modo difícil." data-toggle="tooltip" tabindex="0">?</span></label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <!--<label class="btn btn-secondary active">
+                                    <input type="radio" name="hard-mode" id="hard-mode-random" value="-1" checked> Random
+                                </label>-->
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="hard-mode" id="hard-mode-yes" value="1"> Yes
+                                </label>
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="hard-mode" id="hard-mode-no" value="0" checked> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-none d-lg-block col-lg-1 player-count-1-only"></div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 expansion-only hidden">
+                            <label>Añadir Soldados&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, se le pedirá que añada cartas de soldado a los mazos de colmena." data-toggle="tooltip" tabindex="0">?</span></label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="add-soldiers" id="add-soldiers-yes" value="1"> Yes
+                                </label>
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="add-soldiers" id="add-soldiers-no" value="0" checked> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                            <label for="match-scenario">Tema</label>
+                            <br>
+                            <select id="match-scenario" class="form-control">
+                                <option value="0" selected>Al azar</option>
+                                <option value="" disabled>-- CORE --</option>
+                                <option value="1">Alien</option>
+                                <option value="2">Aliens</option>
+                                <option value="4">Alien 3</option>
+                                <option value="8">Alien Resurrection</option>
+                                <option value="" class="expansion-only hidden" disabled>-- EXPANSIÓN 1 --</option>
+                                <option value="16" class="expansion-only hidden">Alien Incursion</option>
+                                <option value="32" class="expansion-only hidden">Alien Evolved</option>
+                                <option value="" class="covenant-only hidden" disabled>-- COVENANT --</option>
+                                <option value="64" class="covenant-only hidden">Alien Covenant</option>
+                                <option value="" class="fanmade-only hidden" disabled>-- FANMADE --</option>
+                                <option value="128" class="fanmade-only hidden">Alien: Prometheus</option>
+                                <option value="256" class="fanmade-only hidden">Deep Space</option>
+                                <option value="" disabled>----</option>
+                                <option value="-1">Sin tema</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1 theme-only">
+                            <label>Localización temática&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, sólo se elegirá la localización que coincida con el tema, por ejemplo, la Nostromo para Alien, Hadley's Hope para Aliens, Auriga para Alien 3, etc." data-toggle="tooltip" tabindex="0">?</span></label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="limit-location" id="limit-location-yes" value="1" checked> Sí
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="limit-location" id="limit-location-no" value="0"> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1 theme-only">
+                            <label>Objetivos temáticos&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, sólo se elegirá los objetivos que coincidan con el tema, por ejemplo, para Alien se escogerán The S.O.S, No One Can Hear You Scream, y A Perfect Organism" data-toggle="tooltip" tabindex="0">?</span></label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="limit-objectives" id="limit-objectives-yes" value="1" checked> Sí
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="limit-objectives" id="limit-objectives-no" value="0"> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 theme-only">
+                            <label>Personajes temáticos&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, sólo se elegirán los personajes que coincidan con el tema; por ejemplo, para Alien Resurrection sólo se tendrán en cuenta Ripley nº 8, Call, Johner, Christie, Elgyn, Vriess y Ellen Ripley.<br><br>Para los escenarios de expansión se elegirán personajes de una única tripulación al azar." data-toggle="tooltip" data-html="true" tabindex="0">?</span></label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="limit-characters" id="limit-characters-yes" value="1" checked> Sí
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="limit-characters" id="limit-characters-no" value="0"> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1 queen-theme-only hidden">
+                            <label>Reina temática&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, solo se elegirá a la reina que coincida con el tema, por ejemplo, David para Alien: Covenant y la Reina Madre para todos los demás." data-toggle="tooltip" tabindex="0">?</span></label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="limit-queen" id="limit-queen-yes" value="1" checked> Sí
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="limit-queen" id="limit-queen-no" value="0"> No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1">
+                            <label>Límite de una sola Ripley&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, sólo se elegirá un Ripley como máximo." data-toggle="tooltip" tabindex="0">?</span></label>
+                            <br>
+                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="limit-ripleys" id="limit-ripleys-yes" value="1" checked> Sí
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="limit-ripleys" id="limit-ripleys-no" value="0"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <br>
+                        <div class="form-group col-md-4 col-lg-3">
+                            <button class="btn btn-primary btn-block" id="generate">Generar partida</button>
+                        </div>
+                        <div class="form-group col-md-4 col-lg-3 offset-lg-1">
+                            <button class="btn btn-primary btn-block" id="pick-alien-avatar">Seleccionar Avatar de Alien</button>
+                        </div>
+                        <div class="form-group col-12 col-md-4 col-lg-3 offset-lg-1">
+                            <div class="btn-group d-flex flex-fill" role="group" aria-label="Controls">
+                                <button class="btn btn-dark btn-icon" id="save" data-toggle="tooltip" title="Guardar la configuración actual por defecto"><img class="btn-icon svg-icon light" src="https://www.kenherbert.dev/static/img/bookmark-outline.svg" alt="Guardar configuración"></button>
+                                <button class="btn btn-dark btn-icon" id="load" data-toggle="tooltip" title="Cargar configuración guardada" disabled><img class="btn-icon svg-icon light" src="https://www.kenherbert.dev/static/img/reload-outline.svg" alt="Cargar configuración guardada"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="output-game" class="hidden">
+                <div class="row pt-5 pb-3">
+                    <div class="col-12">
+                        Temática: <strong id="selected-theme"></strong>
+                    </div>
+                    <div class="col-12">
+                        Localización: <strong id="selected-location"></strong><strong class="hard-mode-only hidden"> (Modo difícil)</strong>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    <div class="col-12">
+                        <strong style="font-size: large;">Jugadores</strong>
+                    </div>
+                    <div id="player-template" class="hidden">
+                        <div class="col-12">
+                            Jugador <span class="player-number"></span>: <strong class="player-avatar"></strong><strong class="starting-player hidden" style="color:blue"> [jugador inicial]</strong>
+                        </div>
+                        <div class="col-12 pb-2">
+                            Baraja <strong class="player-roles"></strong> con <span class="resource-card-count"></span> <span class="resource-card-name"></span> y  <span class="combat-card-count"></span> <span class="combat-card-name"></span>
+                        </div>
+                    </div>
+                    <div id="players"></div>
+                </div>
+                <div class="row py-3">
+                    <div class="col-12">
+                        <strong style="font-size: large;">Objetivos</strong>
+                    </div>
+                    <div class="col-12">
+                        Objetivo 1: <strong class="selected-objective-1"></strong><strong class="hard-mode-only hidden"> (Modo difícil)</strong>
+                    </div>
+                    <div class="col-12">
+                        Objetivo 2: <strong class="selected-objective-2"></strong><strong class="hard-mode-only hidden"> (Modo difícil)</strong>
+                    </div>
+                    <div class="col-12">
+                        Objetivo 3: <strong class="selected-objective-3"></strong><strong class="hard-mode-only hidden"> (Modo difícil)</strong>
+                    </div>
+                </div>
+                <div id="objective-rules-title" class="row py-3">
+                    <div class="col-12">
+                        <strong style="font-size: large;">Mazo de colmena</strong>
+                    </div>
+                    <div class="col-12 pb-3 queen-mode-only hidden">
+                        Player <span class="queen-player-number"></span> should choose (or randomly draw) 1 Enemy card and place it face down on the Hive.
+                    </div>
+                    <div class="col-12">
+                        <span class="hidden-agendas-only hidden">Draw <span class="drone-total-count"></span> Drone card<span class="drone-total-count-plural">s</span> and shuffle with <span class="player-count"></span> Secrets Revealed cards.<br></span>
+                        <span class="objective-3-no-drones">Baraja<span class="add-soldiers-only hidden"> 1 soldado - 3 al azar en</span> el mazo de Colmena 3 <strong class="selected-objective-3"></strong> y colócalo sobre la Colmena.<br></span>
+                        <span class="objective-3-drones hidden">Baraja <span class="objective-3-drone-count"></span> random Drone<span class="hidden-agendas-only">/Secrets Revealed card</span><span class="objective-3-drone-plural">s</span><span class="add-soldiers-only"> and 1 random Soldier - 3</span> el mazo de Colmena 3 <strong class="selected-objective-3"></strong> y colócalo sobre la Colmena.<br></span>
+                        <span class="objective-2-no-drones">Baraja <span class="add-soldiers-only hidden"> 1 soldado - 2 al azar en</span> el mazo de Colmena 2 <strong class="selected-objective-2"></strong> y colócalo sobre la Colmena.<br></span>
+                        <span class="objective-2-drones hidden">Baraja <span class="objective-2-drone-count"></span> random Drone<span class="hidden-agendas-only">/Secrets Revealed card</span><span class="objective-2-drone-plural">s</span><span class="add-soldiers-only"> and 1 random Soldier - 2</span> el mazo de Colmena 2 <strong class="selected-objective-2"></strong> y colócalo sobre la Colmena.<br></span>
+                        <span class="objective-1-no-drones">Baraja<span class="add-soldiers-only hidden"> 1 soldado - 1 al azar en</span> el mazo de Colmena 1 <strong class="selected-objective-1"></strong> y colócalo sobre la Colmena.<br></span>
+                        <span class="objective-1-drones hidden">Baraja <span class="objective-1-drone-count"></span> random Drone<span class="hidden-agendas-only">/Secrets Revealed card</span><span class="objective-1-drone-plural">s</span><span class="add-soldiers-only hidden"> and 1 random Soldier - 1</span> el mazo de Colmena 1 <strong class="selected-objective-1"></strong> y colócalo sobre la Colmena.<br></span>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    <div class="col-12">
+                        <strong style="font-size: large;">Barracas</strong>
+                    </div>
+                    <div class="col-12">
+                        <strong id="selected-characters"></strong>
+                        &nbsp;&nbsp;&nbsp;
+                        <br/>
+                        <div class="text-center">
+                            <button id="view-classes" class="btn btn-primary btn-sm">Ver distribucción de clases</button>
+                            <button id="evaluate-crew" class="btn btn-primary btn-sm">Evaluar a la tripulación</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-3 queen-mode-only hidden">
+                    <div class="col-12">
+                        <strong style="font-size: large;">Nest</strong>
+                    </div>
+                    <div class="col-12">
+                        <strong id="selected-nests"></strong>
+                    </div>
+                </div>
+                <div class="row py-3 hidden-agendas-only hidden">
+                    <div class="col-12">
+                        <strong style="font-size: large;">Prepara las motivaciones</strong>
+                    </div>
+                    <div class="col-12">
+                        Baraja <span class="player-count"></span> cartas de Motivaciones buenas junto a una Motivación malvada. Reparte una carta boca abajo a <span class="player-type"> todos los</span> jugador(es), y retira la última del juego sin mirarla.
+                    </div>
+                </div>
+                <div id="preparation-round-rules" class="row py-3 hidden">
+                    <div class="col-12">
+                        <strong style="font-size: large;">Ronda de preparación</strong>
+                    </div>
+                    <div class="col-12">
+                        Al comienzo de la partida, <span class="player-type"> todos</span> jugadores reciben <span class="prep-rounds-count">1</span> ronda de preparación<span class="prep-rounds-plural">es</span>. Usen su turno normalmente pero saltándose la Fase de Colmena.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <div id="alien-avatar-modal" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Avatar de Alien</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Avatar de Alien seleccionado: <strong id="selected-alien-avatar"></strong></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="randomize-alien-avatar" class="btn btn-primary">Elegir otra vez</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="class-distribution-modal" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Distribucción de clases</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="piechart"></div>
+                            <small>Note: numbers may total to more than 56 (84 for Queen Mother mode) due to dual-class cards.</small>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="changelog-modal" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Changelog</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="accordion" id="changelog-accordion">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="changelog-template" class="hidden">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="" aria-expanded="false" aria-controls="">
+                                ?
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" aria-labelledby="" data-parent="#changelog-accordion">
+                        <div class="card-body">
+                            <ul>
+                                <li>?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://www.gstatic.com/charts/loader.js"></script>
+            <!--<script src="https://www.kenherbert.dev/static/js/legendary-alien-data.js?_=2023-07-04"></script>
+            <script src="https://www.kenherbert.dev/static/js/legendary-alien-setup-manager.js?_=2023-07-04"></script>-->
+            <!--End Django flatpage content-->
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="js/legendary-alien-data.js"></script>
+        <script src="js/legendary-alien-setup-manager.js"></script>
+    </body>
+</html>
+
