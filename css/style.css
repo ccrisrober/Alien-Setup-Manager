@@ -1,0 +1,22 @@
+body {
+	color: white;
+	background-color: black;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+	background-color: #1bc305;
+	border-color: #00ff3b;
+}
+
+.modal-content {
+	background-color: #000;
+	border: 1px solid white;
+}
+
+.custom-multiselect-option.selected {
+    background-color: #35af37;
+}
+
+.custom-multiselect-option.active {
+    background-color: #02fd2a;
+}

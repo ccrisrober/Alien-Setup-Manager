@@ -240,7 +240,7 @@ function drawCrewsChart() {
 
     
     const data = google.visualization.arrayToDataTable([
-        ['Crew', 'Card count'],
+        ['Tripulación', 'Número de cartass'],
         ['Nostromo', crews.nostromo],
         ['Sulaco', crews.sulaco],
         ['Fury 161', crews.fury161],
@@ -277,9 +277,9 @@ function drawAttackRecruitChart() {
 
     
     const data = google.visualization.arrayToDataTable([
-        ['Attack vs. Recruit', 'Card count'],
-        ['Recruit', totals.recruit],
-        ['Attack', totals.attack]
+        ['Ataque vs. Reclutamiento', 'Número de cartas'],
+        ['Reclutamiento', totals.recruit],
+        ['Ataque', totals.attack]
       ]);
 
       var options = {
@@ -440,15 +440,15 @@ function evaluateCrew() {
 
     if(crewAttackCards > (averageAttackCards + attackCardsWarningDelta)) {
         ranking += 5;
-        strengths.push(`<li>High number of attack cards (${crewAttackCards} in deck, average is ${roundNumber(averageAttackCards)})${debugMode ? ` [+5]` : ''}</li>`);
+        strengths.push(`<li>Alto número de cartas de Ataque (${crewAttackCards} en el mazo, con una media de ${roundNumber(averageAttackCards)})${debugMode ? ` [+5]` : ''}</li>`);
     }
 
     if(crewAttackCards < (averageAttackCards - attackCardsErrorDelta)) {
         ranking -= 5 + (averageAttackCards - crewAttackCards);
-        weaknesses.push(`<li>Extremely low number of attack cards - you will struggle to kill enemies (${crewAttackCards} in deck, average is ${roundNumber(averageAttackCards)})${debugMode ? ` [-${5 + (averageAttackCards - crewAttackCards)}]` : ''}</li>`);
+        weaknesses.push(`<li>Número extremadamente bajo de cartas de Ataque: Te costará matar enemigos (${crewAttackCards} en el mazo, con una media de ${roundNumber(averageAttackCards)})${debugMode ? ` [-${5 + (averageAttackCards - crewAttackCards)}]` : ''}</li>`);
     } else if(crewAttackCards < (averageAttackCards - attackCardsWarningDelta)) {
         ranking -= (averageAttackCards - crewAttackCards);
-        weaknesses.push(`<li>Low number of attack cards - you may struggle to kill powerful enemies (${crewAttackCards} in deck, average is ${roundNumber(averageAttackCards)})${debugMode ? ` [-${averageAttackCards - crewAttackCards}]` : ''}</li>`);
+        weaknesses.push(`<li>Escaso número de cartas de Ataque: Puede que te cueste matar a enemigos poderosos. (${crewAttackCards} en el mazo, con una media de ${roundNumber(averageAttackCards)})${debugMode ? ` [-${averageAttackCards - crewAttackCards}]` : ''}</li>`);
     }
 
     let recruitCardsWarningDelta = (averageRecruitCards * 20) / 100;
@@ -459,15 +459,15 @@ function evaluateCrew() {
     if(crewRecruitCards > (averageRecruitCards + recruitCardsWarningDelta)) {
         ranking += 5;
         crewHighRecruit = true;
-        strengths.push(`<li>High number of recruit cards (${crewRecruitCards} in deck, average is ${roundNumber(averageRecruitCards)})${debugMode ? ` [+5]` : ''}</li>`);
+        strengths.push(`<li>Alto número de cartas de Reclutamiento (${crewRecruitCards} en el mazo, con una media de ${roundNumber(averageRecruitCards)})${debugMode ? ` [+5]` : ''}</li>`);
     }
 
     if(crewRecruitCards < (averageRecruitCards - recruitCardsErrorDelta)) {
         ranking -= 5 + (averageRecruitCards - crewRecruitCards);
-        weaknesses.push(`<li>Extremely low number of recruit cards - you will struggle to recruit characters (${crewRecruitCards} in deck, average is ${roundNumber(averageRecruitCards)})${debugMode ? ` [-${5 + (averageRecruitCards - crewRecruitCards)}]` : ''}</li>`);
+        weaknesses.push(`<li>Número extremadamente bajo de cartas de Reclutamiento: Te costará reclutar personajes (${crewRecruitCards} en el mazo, con una media de ${roundNumber(averageRecruitCards)})${debugMode ? ` [-${5 + (averageRecruitCards - crewRecruitCards)}]` : ''}</li>`);
     } else if(crewRecruitCards < (averageRecruitCards - recruitCardsWarningDelta)) {
         ranking -= (averageRecruitCards - crewRecruitCards);
-        weaknesses.push(`<li>Low number of recruit cards - you may struggle to recruit more powerful characters (${crewRecruitCards} in deck, average is ${roundNumber(averageRecruitCards)})${debugMode ? ` [-${averageRecruitCards - crewRecruitCards}]` : ''}</li>`);
+        weaknesses.push(`<li>Escaso número de cartas de Reclutamiento: Puede que te cueste reclutar a personajes más poderosos. (${crewRecruitCards} en el mazo, con una media de ${roundNumber(averageRecruitCards)})${debugMode ? ` [-${averageRecruitCards - crewRecruitCards}]` : ''}</li>`);
     }
 
     let costWarningDelta = (averageCrewCost * 10) / 100;
@@ -494,7 +494,7 @@ function evaluateCrew() {
         ranking += 10;
 
         if(debugMode) {
-            strengths.push('<em>Additional bonus for high recruit card count and low overall crew cost</em> [+10]');
+            strengths.push('<em>Bonificación adicional por el elevado número de cartas de Reclutamiento y el bajo coste total de la tripulación.</em> [+10]');
         }
     }
 
@@ -505,21 +505,21 @@ function evaluateCrew() {
 
     if(crewCoordinateCards > (averageCoordinateCards + coordinateErrorDelta)) {
         ranking += 8;
-        strengths.push(`<li>Many coordinate cards - teamwork potential is very high (${crewCoordinateCards} in deck, ${roundNumber(averageCoordinateCards)} is typical)${debugMode ? ` [+8]` : ''}</li>`);
+        strengths.push(`<li>Muchas cartas de Coordinación: El potencial de trabajo en equipo es muy alto (${crewCoordinateCards} en el mazo, ${roundNumber(averageCoordinateCards)} es lo habitual)${debugMode ? ` [+8]` : ''}</li>`);
     } else if(crewCoordinateCards > (averageCoordinateCards + coordinateWarningDelta)) {
         ranking += 4;
-        strengths.push(`<li>Above average coordinate cards - teamwork potential is high (${crewCoordinateCards} in deck, ${roundNumber(averageCoordinateCards)} is typical)${debugMode ? ` [+4]` : ''}</li>`);
+        strengths.push(`<li>Cartas de Coordinación por encima de la media: El potencial de trabajo en equipo es alto (${crewCoordinateCards} en el mazo, ${roundNumber(averageCoordinateCards)} es lo habitual)${debugMode ? ` [+4]` : ''}</li>`);
     }
 
     if(crewCoordinateCards === 0) {
         ranking -= 8;
-        weaknesses.push(`<li>No coordinate cards - you will only have Sergeant cards to coordinate${debugMode ? ` [-8]` : ''}</li>`);
+        weaknesses.push(`<li>Sin cartas de Coordinación: Sólo tendrá cartas de Sargento (Sergeant) para coordinar${debugMode ? ` [-8]` : ''}</li>`);
     } else if(crewCoordinateCards < (averageCoordinateCards - coordinateErrorDelta)) {
         ranking -= 5;
-        weaknesses.push(`<li>Very few coordinate cards - teamwork potential is very low (${crewCoordinateCards} in deck, ${roundNumber(averageCoordinateCards)} is typical)${debugMode ? ` [-5]` : ''}</li>`);
+        weaknesses.push(`<li>Muy pocas cartas de Coordinación: El potencial de trabajo en equipo es muy bajo (${crewCoordinateCards} en el mazo, ${roundNumber(averageCoordinateCards)} es lo habitual)${debugMode ? ` [-5]` : ''}</li>`);
     } else if(crewCoordinateCards < (averageCoordinateCards - coordinateWarningDelta)) {
         ranking -= 2;
-        weaknesses.push(`<li>Few coordinate cards - teamwork potential is restricted (${crewCoordinateCards} in deck, ${roundNumber(averageCoordinateCards)} is typical)${debugMode ? ` [-2]` : ''}</li>`);
+        weaknesses.push(`<li>Pocas cartas de Coordinación: Se limita el potencial de trabajo en equipo (${crewCoordinateCards} en el mazo, ${roundNumber(averageCoordinateCards)} es lo habitual)${debugMode ? ` [-2]` : ''}</li>`);
     }
 
     
@@ -528,21 +528,21 @@ function evaluateCrew() {
 
     if(crewStrikeMitigationCards > (averageStrikeMitigationCards + strikeMitigationErrorDelta)) {
         ranking += 5 + (crewStrikeMitigationCards - averageStrikeMitigationCards);
-        strengths.push(`<li>Healing and strike avoidance cards are very common (${crewStrikeMitigationCards} in deck, average is ${roundNumber(averageStrikeMitigationCards)})${debugMode ? ` [+${5 + (crewStrikeMitigationCards - averageStrikeMitigationCards)}]` : ''}</li>`);
+        strengths.push(`<li>Las cartas de Curación y evasión de Impacto son muy comunes (${crewStrikeMitigationCards} en el mazo, con una media de ${roundNumber(averageStrikeMitigationCards)})${debugMode ? ` [+${5 + (crewStrikeMitigationCards - averageStrikeMitigationCards)}]` : ''}</li>`);
     //} else if(crewStrikeMitigationCards > (averageStrikeMitigationCards + strikeMitigationWarningDelta)) {
         //ranking += 5;
-        //strengths.push(`<li>Healing and strike avoidance cards are common (${crewStrikeMitigationCards} in deck, average is ${roundNumber(averageStrikeMitigationCards)})</li>`);
+        //strengths.push(`<li>Healing and strike avoidance cards are common (${crewStrikeMitigationCards} en el mazo, con una media de ${roundNumber(averageStrikeMitigationCards)})</li>`);
     }
 
     if(crewStrikeMitigationCards === 0) {
         ranking -= 10;
-        weaknesses.push(`<li>No healing and strike avoidance cards - strikes cannot be prevented or healed${debugMode ? ` [-10]` : ''}</li>`);
+        weaknesses.push(`<li>No hay cartas de Curación ni de evasión de Impactos: Los Impactos no se pueden evitar ni curar.${debugMode ? ` [-10]` : ''}</li>`);
     } else if(crewStrikeMitigationCards < (averageStrikeMitigationCards - strikeMitigationErrorDelta)) {
         ranking -= 6;
-        weaknesses.push(`<li>Very few healing and strike avoidance cards - losing health is likely (${crewStrikeMitigationCards} in deck, average is ${roundNumber(averageStrikeMitigationCards)})${debugMode ? ` [-6]` : ''}</li>`);
+        weaknesses.push(`<li>Muy pocas cartas de Curación y evasión de Impactos: Perder salud es probable (${crewStrikeMitigationCards} en el mazo, con una media de ${roundNumber(averageStrikeMitigationCards)})${debugMode ? ` [-6]` : ''}</li>`);
     } else if(crewStrikeMitigationCards < (averageStrikeMitigationCards - strikeMitigationWarningDelta)) {
         ranking -= 2;
-        weaknesses.push(`<li>Few healing and strike avoidance cards - losing health is possible (${crewStrikeMitigationCards} in deck, average is ${roundNumber(averageStrikeMitigationCards)})${debugMode ? ` [-2]` : ''}</li>`);
+        weaknesses.push(`<li>Pocas cartas de Curación y evasión de Impactos: Perder salud es posible (${crewStrikeMitigationCards} en el mazo, con una media de ${roundNumber(averageStrikeMitigationCards)})${debugMode ? ` [-2]` : ''}</li>`);
     }
 
 
@@ -675,21 +675,21 @@ function evaluateCrew() {
     let descriptiveRank = '';
 
     if(finalRanking >= 25) {
-        descriptiveRank = 'Very strong';
+        descriptiveRank = 'Muy fuerte';
     } else if(finalRanking >= 20) {
-        descriptiveRank = 'Strong';
+        descriptiveRank = 'Fuerte';
     } else if(finalRanking >= 10) {
-        descriptiveRank = 'Above average';
+        descriptiveRank = 'Por encima de la media';
     } else if(finalRanking >= 0) {
-        descriptiveRank = 'Average';
+        descriptiveRank = 'Media';
     } else if(finalRanking >= -5) {
-        descriptiveRank = 'Below average';
+        descriptiveRank = 'Por debajo de la media';
     } else if(finalRanking >= -10) {
-        descriptiveRank = 'Challenging';
+        descriptiveRank = 'Desafío';
     } else if(finalRanking >= -20) {
-        descriptiveRank = 'Very challenging';
+        descriptiveRank = 'Muy desafiante';
     } else if(finalRanking < -20) {
-        descriptiveRank = 'Unlikely to survive';
+        descriptiveRank = 'Es poco probable que sobrevivan';
     }
 
     $('#crew-score-container').removeClass('hidden');
@@ -733,23 +733,23 @@ function populateCharacters() {
         let classes = [];
 
         if(char.classes.intel > 0) {
-            classes.push('<img src="https://www.kenherbert.dev/static/img/class-intel.png" title="Intel class" alt="Intel class">');
+            classes.push('<img src="./img/class-intel.png" title="Intel class" alt="Intel class">');
         }
 
         if(char.classes.leadership > 0) {
-            classes.push('<img src="https://www.kenherbert.dev/static/img/class-leadership.png" title="Leadership class" alt="Leadership class">');
+            classes.push('<img src="./img/class-leadership.png" title="Leadership class" alt="Leadership class">');
         }
 
         if(char.classes.strength > 0) {
-            classes.push('<img src="https://www.kenherbert.dev/static/img/class-strength.png" title="Strength class" alt="Strength class">');
+            classes.push('<img src="./img/class-strength.png" title="Strength class" alt="Strength class">');
         }
 
         if(char.classes.survival > 0) {
-            classes.push('<img src="https://www.kenherbert.dev/static/img/class-survival.png" title="Survival class" alt="Survival class">');
+            classes.push('<img src="./img/class-survival.png" title="Survival class" alt="Survival class">');
         }
 
         if(char.classes.tech > 0) {
-            classes.push('<img src="https://www.kenherbert.dev/static/img/class-tech.png" title="Tech class" alt="Tech class">');
+            classes.push('<img src="./img/class-tech.png" title="Tech class" alt="Tech class">');
         }
         
         $template.find('.character-classes').html(classes.join(''));
@@ -757,23 +757,23 @@ function populateCharacters() {
         let crews = [];
 
         if(char.crew.nostromo > 0) {
-            crews.push('<img src="https://www.kenherbert.dev/static/img/crew-nostromo.png" title="Nostromo Crew" alt="Nostromo crew">');
+            crews.push('<img src="./img/crew-nostromo.png" title="Nostromo Crew" alt="Nostromo crew">');
         }
 
         if(char.crew.sulaco > 0) {
-            crews.push('<img src="https://www.kenherbert.dev/static/img/crew-sulaco.png" title="Sulaco Crew" alt="Sulaco crew">');
+            crews.push('<img src="./img/crew-sulaco.png" title="Sulaco Crew" alt="Sulaco crew">');
         }
 
         if(char.crew.fury161 > 0) {
-            crews.push('<img src="https://www.kenherbert.dev/static/img/crew-fury-161.png" title="Fury 161 Crew" alt="Fury 161 crew">');
+            crews.push('<img src="./img/crew-fury-161.png" title="Fury 161 Crew" alt="Fury 161 crew">');
         }
 
         if(char.crew.theBetty > 0) {
-            crews.push('<img src="https://www.kenherbert.dev/static/img/crew-betty.png" title="The Betty Crew" alt="The Betty crew">');
+            crews.push('<img src="./img/crew-betty.png" title="The Betty Crew" alt="The Betty crew">');
         }
 
         if(char.crew.covenant > 0) {
-            crews.push('<img src="https://www.kenherbert.dev/static/img/crew-covenant.png" title="Covenant Crew" alt="Covenant crew">');
+            crews.push('<img src="./img/crew-covenant.png" title="Covenant Crew" alt="Covenant crew">');
         }
         
         $template.find('.character-crews').html(crews.join(''));
@@ -852,9 +852,6 @@ function initialize() {
         $('.custom-multiselect-option').mouseout(hideHoverState);
         $('.custom-multiselect-infobox').click(toggleCheckbox);
         $('.custom-multiselect-checkbox').change(checkboxOnChange);
-
-        populateChangelog($('#changelog-accordion'), $('#changelog-template'), $('#last-updated'), crewEvaluatorChangelog);
-        setInterval(respectDarkMode, 1000);
     });
 }
 

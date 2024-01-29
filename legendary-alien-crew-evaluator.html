@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Legendary Encounters: Alien crew evaluator</title>
+        <title>Legendary Encounters: Alien - Evaluador de la tripulación</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <style>
@@ -32,85 +32,86 @@
                 display: none;
             }
         </style>
+        
+        <!--Begin Django flatpage content for portfolio release-->
+        <style>
+            #custom-multiselect {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: stretch;
+            }
+            #custom-multiselect-indicator {
+                flex-basis: 100%;
+            }
+            .custom-multiselect-option {
+                flex-basis: 100%;
+                padding: 4px;
+                border: 1px solid #ddd;
+                cursor: pointer;
+            }
+            @media (min-width: 576px) {
+                .custom-multiselect-option {
+                    flex-basis: 50%;
+                }
+            }
+            @media (min-width: 768px) {
+                .custom-multiselect-option {
+                    flex-basis: 33%;
+                }
+            }
+            @media (min-width: 992px) {
+                .custom-multiselect-option {
+                    flex-basis: 25%;
+                }
+            }
+            .custom-multiselect-option.selected {
+                background-color: #d0e0ff;
+            }
+            .custom-multiselect-option.active {
+                background-color: #e0e0e0;
+            }
+            .custom-multiselect-label {
+                display: block;
+                position: relative;
+                padding: 0;
+                margin: 0;
+                cursor: pointer;
+            }
+            .custom-multiselect-checkbox {
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                cursor: pointer;
+            }
+            .character-crews img,
+            .character-classes img {
+                max-height: 20px;
+            }
+            body.dark-mode .custom-multiselect-option {
+                border-color: #444;
+            }
+            body.dark-mode .custom-multiselect-option.selected {
+                background-color: #27274e;
+            }
+            body.dark-mode .custom-multiselect-option.active {
+                background-color: #272727;
+            }
+
+        </style>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
         <div class="container-lg">
             <div class="row py-3">
-                <div class="col-12">
-                    <h1>Legendary Encounters: Alien crew evaluator</h1>
+                <div class="col-12 text-center">
+                    <h1>Legendary Encounters: Alien - Evaluador de la tripulación</h1>
                 </div>
             </div>
-        
-            <!--Begin Django flatpage content for portfolio release-->
-            <style>
-                #custom-multiselect {
-                    display: flex;
-                    flex-wrap: wrap;
-                    align-items: stretch;
-                }
-                #custom-multiselect-indicator {
-                    flex-basis: 100%;
-                }
-                .custom-multiselect-option {
-                    flex-basis: 100%;
-                    padding: 4px;
-                    border: 1px solid #ddd;
-                    cursor: pointer;
-                }
-                @media (min-width: 576px) {
-                    .custom-multiselect-option {
-                        flex-basis: 50%;
-                    }
-                }
-                @media (min-width: 768px) {
-                    .custom-multiselect-option {
-                        flex-basis: 33%;
-                    }
-                }
-                @media (min-width: 992px) {
-                    .custom-multiselect-option {
-                        flex-basis: 25%;
-                    }
-                }
-                .custom-multiselect-option.selected {
-                    background-color: #d0e0ff;
-                }
-                .custom-multiselect-option.active {
-                    background-color: #e0e0e0;
-                }
-                .custom-multiselect-label {
-                    display: block;
-                    position: relative;
-                    padding: 0;
-                    margin: 0;
-                    cursor: pointer;
-                }
-                .custom-multiselect-checkbox {
-                    position: absolute;
-                    right: 5px;
-                    top: 5px;
-                    cursor: pointer;
-                }
-                .character-crews img,
-                .character-classes img {
-                    max-height: 20px;
-                }
-                body.dark-mode .custom-multiselect-option {
-                    border-color: #444;
-                }
-                body.dark-mode .custom-multiselect-option.selected {
-                    background-color: #27274e;
-                }
-                body.dark-mode .custom-multiselect-option.active {
-                    background-color: #272727;
-                }
-
-            </style>
             <div class="row py-3">
                 <div class="col-12">
                     <div class="form-row">
                         <div class="form-group col-sm-6 col-md-4">
-                            <label>First expansion</label>
+                            <label>Primera expansión</label>
                             <br>
                             <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
                                 <label class="btn btn-secondary">
@@ -134,11 +135,11 @@
                             </div>
                         </div>
                         <div class="form-group col-sm-6 col-md-4">
-                            <label>Queen Mother&nbsp;<span class="badge badge-secondary tooltip-container" title="Affects the number of characters required before calculating the evaluation" data-toggle="tooltip" tabindex="0">?</span></label>
+                            <label>Reina Alien&nbsp;<span class="badge badge-secondary tooltip-container" title="Affects the number of characters required before calculating the evaluation" data-toggle="tooltip" tabindex="0">?</span></label>
                             <br>
                             <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
                                 <label class="btn btn-secondary">
-                                    <input type="radio" name="queen-mode" id="queen-mode-yes" value="1"> Yes
+                                    <input type="radio" name="queen-mode" id="queen-mode-yes" value="1"> Sí
                                 </label>
                                 <label class="btn btn-secondary active">
                                     <input type="radio" name="queen-mode" id="queen-mode-no" value="0" checked> No
@@ -149,7 +150,7 @@
                 </div>
                 <div class="custom-multiselect-option character-template hidden">
                     <label class="custom-multiselect-label" for="character-name">
-                        <span class="character-name">Character Name</span>
+                        <span class="character-name">Nombre del personaje</span>
                         <input type="checkbox" class="custom-multiselect-checkbox" value="Character Name" id="character-name">
                     </label>
                     <div class="custom-multiselect-infobox d-flex justify-content-between">
@@ -157,42 +158,42 @@
                         <span class="character-classes"></span>
                     </div>
                 </div>
-                <div id="custom-multiselect-indicator" class="col-12 text-smaller">Please select <span id="custom-multiselect-remaining">4</span> more character<span id="custom-multiselect-remaining-plural">s</span></div>
-                <div id="custom-multiselect-full" class="col-12 text-smaller hidden"><span id="custom-multiselect-total">4</span> characters selected - crew evaluation updated</div>
+                <div id="custom-multiselect-indicator" class="col-12 text-smaller">Por favor, selecciona <span id="custom-multiselect-remaining">4</span> personaje<span id="custom-multiselect-remaining-plural">s</span> más</div>
+                <div id="custom-multiselect-full" class="col-12 text-smaller hidden"><span id="custom-multiselect-total">4</span> personajes seleccionados - evaluación actualizada de la tripulación</div>
                 <div id="custom-multiselect" class="col-12" data-required="4"></div>
             </div>
             <div id="results" class="hidden">
                 <div class="row pt-5 pb-3">
                     <div class="col-12 col-md-6">
-                        <h5>Crew Distribution</h5>
+                        <h5>Distribución de la tripulación</h5>
                         <div id="piechart-crews"></div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <h5>Class Distribution&nbsp;<span class="badge badge-secondary tooltip-container" title="Numbers may total to more than 56 (or 84 for Queen Mother mode) due to dual-class cards." data-toggle="tooltip" tabindex="0">?</span></h5>
+                        <h5>Distribución de clases&nbsp;<span class="badge badge-secondary tooltip-container" title="Los números pueden sumar más de 56 (u 84 para el modo Reina Madre) debido a las tarjetas de doble clase.." data-toggle="tooltip" tabindex="0">?</span></h5>
                         <div id="piechart-classes"></div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <h5>Attack/Recruit Distribution&nbsp;<span class="badge badge-secondary tooltip-container" title="Normal ratio is approximately 30-40% recruit to 60-70% attack (dual recruit/attack cards will alter ratios)" data-toggle="tooltip" tabindex="0">?</span></h5>
+                        <h5>Distribución de ataque y reclutamiento&nbsp;<span class="badge badge-secondary tooltip-container" title="La proporción normal es de aproximadamente un 30-40% de reclutas y un 60-70% de ataques (las cartas duales de reclutas/ataques alterarán las proporciones)." data-toggle="tooltip" tabindex="0">?</span></h5>
                         <div id="piechart-attack-recruit"></div>
                     </div>
                 </div>
                 <div id="crew-strengths" class="row py-3 hidden">
                     <div class="col-12">
-                        <strong style="font-size: large;">Strengths</strong>
+                        <strong style="font-size: large;">Fortalezas</strong>
                     </div>
                     <div id="crew-strengths-content" class="col-12">
                     </div>
                 </div>
                 <div id="crew-weaknesses" class="row py-3 hidden">
                     <div class="col-12">
-                        <strong style="font-size: large;">Weaknesses</strong>
+                        <strong style="font-size: large;">Debilidades</strong>
                     </div>
                     <div id="crew-weaknesses-content" class="col-12">
                     </div>
                 </div>
                 <div id="crew-score-container" class="row py-3">
                     <div class="col-12">
-                        <strong style="font-size: large;">Crew Ranking</strong>
+                        <strong style="font-size: large;">Clasificación de la tripulación</strong>
                     </div>
                     <div id="crew-score" class="col-12"></div>
                 </div>
@@ -200,26 +201,6 @@
             <br>
             <br>
             <br>
-
-            <div id="changelog-modal" class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Changelog</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="accordion" id="changelog-accordion">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div id="changelog-template" class="hidden">
                 <div class="card">
@@ -240,26 +221,7 @@
                 </div>
             </div>
 
-            <div class="row py-3">
-                <div class="col-12">
-                    Updated <span id="last-updated"></span>&nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#changelog-modal">
-                        View Changelog
-                    </button>
-                </div>
-            </div>
-
-            <div class="row py-3">
-                <div class="col-12">
-                    <p>If this tool has been useful to you please consider <a href="/donate">donating</a>. Thanks!</p>
-                </div>
-            </div>
-
             <script src="https://www.gstatic.com/charts/loader.js"></script>
-            <script src="https://www.kenherbert.dev/static/js/web-app-common.js?_=2023-07-04"></script>
-            <!--<script src="https://www.kenherbert.dev/static/js/legendary-alien-data.js?_=2023-07-04"></script>
-            <script src="https://www.kenherbert.dev/static/js/legendary-alien-crew-evaluator.js?_=2023-07-04"></script>-->
-            <!--End Django flatpage content-->
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

@@ -31,22 +31,8 @@
             .hidden {
                 display: none;
             }
-
-body {
-  color: white;
-  background-color: black;
-}
-
-            .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
-                   background-color: #1bc305;
-    border-color: #00ff3b;
-            }
-
-            .modal-content {
-    background-color: #000;
-        border: 1px solid white;
-}
         </style>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
         <div class="container">
@@ -135,7 +121,7 @@ body {
                             </div>
                         </div>
                         <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1 expansion-multiplayer-only hidden">
-                            <label>Reina Madre&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, un jugador al azar se convertirá en la Reina Madre (o David si la expansión Alien: Covenant está disponible) y se opondrá a todos los demás jugadores." data-toggle="tooltip" tabindex="0">?</span></label>
+                            <label>Reina Alien&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, un jugador al azar se convertirá en la Reina Alien (o David si la expansión Alien: Covenant está disponible) y se opondrá a todos los demás jugadores." data-toggle="tooltip" tabindex="0">?</span></label>
                             <br>
                             <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
                                 <label class="btn btn-secondary">
@@ -236,7 +222,7 @@ body {
                             </div>
                         </div>
                         <div class="form-group col-sm-6 col-md-4 col-lg-3 offset-lg-1 queen-theme-only hidden">
-                            <label>Reina temática&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, solo se elegirá a la reina que coincida con el tema, por ejemplo, David para Alien: Covenant y la Reina Madre para todos los demás." data-toggle="tooltip" tabindex="0">?</span></label>
+                            <label>Reina temática&nbsp;<span class="badge badge-secondary tooltip-container" title="En caso afirmativo, solo se elegirá a la reina que coincida con el tema, por ejemplo, David para Alien: Covenant y la Reina Alien para todos los demás." data-toggle="tooltip" tabindex="0">?</span></label>
                             <br>
                             <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
                                 <label class="btn btn-secondary active">
@@ -270,8 +256,8 @@ body {
                         </div>
                         <div class="form-group col-12 col-md-4 col-lg-3 offset-lg-1">
                             <div class="btn-group d-flex flex-fill" role="group" aria-label="Controls">
-                                <button class="btn btn-dark btn-icon" id="save" data-toggle="tooltip" title="Guardar la configuración actual por defecto"><img class="btn-icon svg-icon light" src="https://www.kenherbert.dev/static/img/bookmark-outline.svg" alt="Guardar configuración"></button>
-                                <button class="btn btn-dark btn-icon" id="load" data-toggle="tooltip" title="Cargar configuración guardada" disabled><img class="btn-icon svg-icon light" src="https://www.kenherbert.dev/static/img/reload-outline.svg" alt="Cargar configuración guardada"></button>
+                                <button class="btn btn-dark btn-icon" id="save" data-toggle="tooltip" title="Guardar la configuración actual por defecto"><img class="btn-icon svg-icon light" src="./img/bookmark-outline.svg" alt="Guardar configuración"></button>
+                                <button class="btn btn-dark btn-icon" id="load" data-toggle="tooltip" title="Cargar configuración guardada" disabled><img class="btn-icon svg-icon light" src="./img/reload-outline.svg" alt="Cargar configuración guardada"></button>
                             </div>
                         </div>
                     </div>
@@ -454,9 +440,6 @@ body {
             </div>
 
             <script src="https://www.gstatic.com/charts/loader.js"></script>
-            <!--<script src="https://www.kenherbert.dev/static/js/legendary-alien-data.js?_=2023-07-04"></script>
-            <script src="https://www.kenherbert.dev/static/js/legendary-alien-setup-manager.js?_=2023-07-04"></script>-->
-            <!--End Django flatpage content-->
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

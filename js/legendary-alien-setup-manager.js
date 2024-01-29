@@ -606,7 +606,7 @@ function drawChart() {
 
     
     const data = google.visualization.arrayToDataTable([
-        ['Clase', 'Número cartas'],
+        ['Clase', 'Número de cartas'],
         ['Inteligencia', classes.intel],
         ['Liderazgo', classes.leadership],
         ['Fuerza', classes.strength],
@@ -640,7 +640,7 @@ function showEvaluateCrew() {
     let names = characters.map(char => char.name).join('|');
     let settings = (options.includeExpansion ? 1 : 0) + (options.includeCovenant ? 2 : 0) + (options.queenMode ? 4 : 0);
 
-    let URI = `https://www.kenherbert.dev/legendary-alien-crew-evaluator/?s=${settings}&c=${names}`;
+    let URI = `./legendary-alien-crew-evaluator.html?s=${settings}&c=${names}`;
 
     window.open(URI);
 }
@@ -666,7 +666,6 @@ function initialize() {
         $('#match-scenario, input[name="player-count"], input[name="include-expansion"], input[name="include-covenant"], input[name="include-fanmade"], input[name="queen-mode"]').change(updateVisibilityState);
 
         loadState();
-        setInterval(respectDarkMode, 1000);
     });
 }
 
